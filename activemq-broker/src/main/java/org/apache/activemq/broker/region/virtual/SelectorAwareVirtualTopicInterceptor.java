@@ -119,13 +119,4 @@ public class SelectorAwareVirtualTopicInterceptor extends VirtualTopicIntercepto
     private BooleanExpression compileSelector(final String selectorExpression) throws Exception {
         return SelectorParser.parse(selectorExpression);
     }
-
-    private BaseDestination getBaseDestination(Destination virtualDest) {
-        if (virtualDest instanceof BaseDestination) {
-            return (BaseDestination) virtualDest;
-        } else if (virtualDest instanceof DestinationFilter) {
-            return ((DestinationFilter) virtualDest).getAdaptor(BaseDestination.class);
-        }
-        return null;
-    }
 }
